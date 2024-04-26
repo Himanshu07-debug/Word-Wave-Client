@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AiFillInstagram, AiFillYoutube, AiFillLinkedin } from "react-icons/ai";
+import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { FaGitSquare } from "react-icons/fa";
 import { Context } from "../../main";
 
 const Footer = () => {
-  const isDashboard = useLocation("http://localhost:5173/dashboard");
-  const { mode, setMode } = useContext(Context);
+
+  const location = useLocation();
+  const isDashboard = location.pathname === "/dashboard";
+  const { mode } = useContext(Context);
 
   return (
     <footer
@@ -72,9 +74,6 @@ const Footer = () => {
           </Link>
           <Link to={"/"} target="_blank">
             <FaGitSquare />
-          </Link>
-          <Link to={"https://www.youtube.com/@CodeWithZeeshu"} target="_blank">
-            <AiFillYoutube />
           </Link>
           <Link to={"/"} target="_blank">
             <AiFillLinkedin />
